@@ -43,6 +43,7 @@ A extensão adiciona caixas de seleção à lista de conversas e permite selecio
 - 🧹 **Limpar Seleção:** Remova todas as conversas selecionadas de uma só vez.
 - ⚡ **Exclusão em Lote (Bulk Delete):** Exclua sequencialmente as conversas selecionadas.
 - 🛡️ **Modal de Confirmação:** Revise a ação antes de confirmar a exclusão das conversas.
+- 🎛️ **Toolbar Minimizable:** Minimize e restaure a barra de ferramentas com animações suaves, mantendo a interface acessível quando necessário.
 - 🎨 **Interface Integrada e Modular:** Interface integrada ao ChatGPT, com estilos CSS modulares e ícones vetoriais.
 
 ---
@@ -131,31 +132,33 @@ pnpm watch
 
 ```text
 chatgpt-bulk-delete/
-├── 📄 manifest.json        # Configuração principal da Chrome Extension (V3)
-├── 📄 package.json         # Scripts de build e dependências
-├── 📄 pnpm-lock.yaml       # Ficheiro de bloqueio de dependências
-├── 📁 assets/               
-│   ├── 📁 fonts/           # Fontes
-│   │   └──audiowide-regular.woff2
-│   └── 📁 images/          # Banners, ícones, capturas de tela
+├── 📄 manifest.json
+├── 📄 package.json
+├── 📄 pnpm-lock.yaml
+├── 📄 preview.html             # Página para visualizar a toolbar
+├── 📄 preview.js               # Inicialização do preview
+├── 📁 assets/
+│   ├── 📁 fonts/
+│   │   └── audiowide-regular.woff2
+│   └── 📁 images/
 │       ├── cover.jpeg
 │       ├── icon-16.png
 │       ├── icon-48.png
 │       ├── icon-128.png
 │       ├── screenshot-1.png
 │       └── screenshot-2.png
-├── 📁 dist/                # arquivos otimizados gerados pelo build
+├── 📁 dist/                    # Arquivos de distribuição gerados e minificados
 │   ├── content.js
 │   └── content.css
-└── 📁 src/                 # Código-fonte do projeto
-    ├── 📄 background.js    # Service worker da extensão
-    ├── 📄 content.js       # Ponto de entrada do content script
-    ├── 📁 features/        # Módulos de seleção, exclusão e toolbar
+└── 📁 src/
+    ├── 📄 background.js        # Service worker da extensão
+    ├── 📄 content.js           # Ponto de entrada do content script
+    ├── 📁 features/
     │   ├── 📁 bulk-delete/
     │   ├── 📁 conversations/
     │   └── 📁 toolbar/
-    ├── 📁 shared/          # Recursos compartilhados (SVG Icons)
-    └── 📁 styles/          # Estilos CSS modulares
+    ├── 📁 shared/               # Recursos compartilhados
+    └── 📁 styles/               # Estilos CSS modulares
 ```
 
 ---
