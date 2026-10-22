@@ -52,11 +52,11 @@ A extensão adiciona caixas de seleção à lista de conversas e permite selecio
 <table width="100%">
   <tr>
     <td width="50%" align="center">
-      <b>Painel Principal</b><br/><br/>
+      <b>Painel Principal e Seleção</b><br/><br/>
       <img src="assets/images/screenshot-1.png" alt="Interface principal" width="100%" />
     </td>
     <td width="50%" align="center">
-      <b>Confirmação & Seleção</b><br/><br/>
+      <b>Confirmação e Exclusão</b><br/><br/>
       <img src="assets/images/screenshot-2.png" alt="Processo de exclusão" width="100%" />
     </td>
   </tr>
