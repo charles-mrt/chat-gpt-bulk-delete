@@ -1,0 +1,22 @@
+@media (prefers-reduced-motion: reduce) {
+  #bulk-delete-toolbar,
+  #bulk-delete-toolbar::before,
+  #bulk-delete-toolbar::after,
+  .bd-modal-overlay,
+  .bd-modal {
+    animation: none !important;
+  }
+
+  .bulk-delete-checkbox,
+  .bd-button,
+  .bd-footer-manage,
+  .bd-modal-actions button {
+    transition: none !important;
+  }
+
+  .bd-button:hover:not(:disabled),
+  .bd-button:active:not(:disabled),
+  .bulk-delete-checkbox:active {
+    transform: none !important;
+  }
+}

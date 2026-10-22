@@ -1,0 +1,113 @@
+:root {
+  /* Surfaces */
+  --bd-bg: #171717;
+  --bd-panel: #212121;
+  --bd-hover: #2b2b2b;
+  --bd-border: #363636;
+  --bd-border-light: #3a3a3a;
+  --bd-surface-secondary: #303030;
+  --bd-surface-tertiary: #3b3b3b;
+  --bd-summary-bg: #292929;
+  --bd-summary-icon-bg: #363636;
+
+  /* Text */
+  --bd-text: #f5f5f5;
+  --bd-muted: #a3a3a3;
+  --bd-white: #ffffff;
+  --bd-transparent: transparent;
+
+  /* Actions */
+  --bd-danger: #6d28d9;
+  --bd-danger-hover: #7c3aed;
+  --bd-confirm: #d94343;
+  --bd-confirm-hover: #bd3434;
+
+  /* Accents */
+  --bd-accent: #8b5cf6;
+  --bd-accent-hover: #7c3aed;
+  --bd-purple-light: #a78bfa;
+  --bd-purple: #8b5cf6;
+  --bd-purple-dark: #4c1d95;
+
+  /* Toolbar gradients */
+  --bd-blue: #2563eb;
+  --bd-indigo: #6366f1;
+  --bd-pink: #a855f7;
+
+    /* Delete button gradient */
+  --bd-danger-gradient-start: #6d28d9;
+  --bd-danger-gradient-middle: #5b21b6;
+  --bd-danger-gradient-end: #4c1d95;
+
+  --bd-danger-gradient-hover-start: #7c3aed;
+  --bd-danger-gradient-hover-middle: #6d28d9;
+  --bd-danger-gradient-hover-end: #5b21b6;
+
+  /* Modal delete button gradient */
+  --bd-modal-delete-gradient-start: #f04452;
+  --bd-modal-delete-gradient-middle: #e02d45;
+  --bd-modal-delete-gradient-end: #c81e3a;
+
+  --bd-modal-delete-gradient-hover-start: #ff5964;
+  --bd-modal-delete-gradient-hover-middle: #ed354d;
+  --bd-modal-delete-gradient-hover-end: #d92543;
+
+    /* Feedback states */
+  --bd-info-bg: rgb(59 130 246 / 12%);
+  --bd-info-border: rgb(59 130 246 / 22%);
+  --bd-info: #60a5fa;
+
+  --bd-warning-bg: rgb(229 185 106 / 12%);
+  --bd-warning-border: rgb(229 185 106 / 25%);
+  --bd-warning: #e5b96a;
+
+  --bd-neutral-bg: rgb(163 163 163 / 10%);
+  --bd-neutral-border: rgb(163 163 163 / 20%);
+  --bd-neutral: var(--bd-muted);
+
+  /* Success */
+  --bd-success: #70b88a;
+
+  /* Error */
+  --bd-error: #ff7777;
+  --bd-error-bg: rgb(220 69 69 / 13%);
+  --bd-error-border: rgb(220 69 69 / 22%);
+  
+  /* Borders and focus */
+  --bd-focus: #a78bfa;
+  --bd-checkbox-border: #525252;
+  --bd-outline: 2px solid var(--bd-focus);
+
+  /* Overlay */
+  --bd-overlay: rgb(0 0 0 / 55%);
+
+  /* Glows and transparency */
+  --bd-glow-transparent: rgb(37 99 235 / 0%);
+  --bd-glow-blue: rgb(37 99 235 / 30%);
+  --bd-glow-indigo: rgb(99 102 241 / 38%);
+  --bd-glow-purple: rgb(168 85 247 / 35%);
+  --bd-glow-inner: rgb(99 102 241 / 8%);
+  --bd-glow-shadow: rgb(99 102 241 / 5%);
+
+  /* Button effects */
+  --bd-danger-border: rgb(167 139 250 / 25%);
+  --bd-danger-border-hover: rgb(167 139 250 / 45%);
+  --bd-danger-shadow: rgb(109 40 217 / 25%);
+  --bd-white-highlight: rgb(255 255 255 / 8%);
+
+  /* Shadows */
+  --bd-shadow: rgb(0 0 0 / 25%);
+  --bd-modal-shadow: 0 24px 80px rgb(0 0 0 / 35%);
+
+  /* Animations and transitions */
+  --bd-transition: 150ms ease;
+  --bd-modal-fade-duration: 150ms;
+  --bd-modal-enter-duration: 180ms;
+
+    /* Error states */
+  --bd-error-bg: rgb(220 69 69 / 13%);
+  --bd-error-border: rgb(220 69 69 / 22%);
+
+  /* Strong borders */
+  --bd-border-strong: #525252;
+}

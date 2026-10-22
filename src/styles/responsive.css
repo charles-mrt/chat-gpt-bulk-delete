@@ -1,0 +1,16 @@
+@media (max-width: 480px) {
+  #bulk-delete-toolbar {
+    right: 12px;
+    bottom: 12px;
+    width: calc(100vw - 24px);
+  }
+
+  .bd-modal {
+    padding: 22px;
+    border-radius: 16px;
+  }
+
+  .bd-modal-actions {
+    gap: 8px;
+  }
+}
