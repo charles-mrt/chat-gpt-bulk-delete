@@ -200,7 +200,7 @@ export function createToolbar() {
     </p>
 
     <div class="bd-footer">
-      <small class="bd-footer-version">v1.0.0</small>
+      <small class="bd-footer-version">v1.2.0</small>
 
       <button
         type="button"
