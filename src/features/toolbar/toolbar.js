@@ -41,6 +41,82 @@ export function setToolbarDisabled(disabled) {
   })
 }
 
+function setupToolbarToggle(toolbar) {
+  let toggleButton = document.querySelector('#bulk-delete-toolbar-toggle')
+
+  if (!toggleButton) {
+    toggleButton = document.createElement('button')
+    toggleButton.id = 'bulk-delete-toolbar-toggle'
+    toggleButton.type = 'button'
+    toggleButton.className = 'bd-toolbar-toggle'
+    toggleButton.setAttribute('aria-label', 'Mostrar toolbar')
+    toggleButton.title = 'Mostrar toolbar'
+    toggleButton.innerHTML = lucideIcon('bot', 18)
+
+    document.body.appendChild(toggleButton)
+  }
+
+  const closeButton = toolbar.querySelector('.close-toolbar')
+
+  // Evita registrar os mesmos eventos novamente.
+  if (toolbar.dataset.toggleInitialized === 'true') {
+    toggleButton.hidden = !toolbar.classList.contains('bd-toolbar-hidden')
+    return
+  }
+
+  toolbar.dataset.toggleInitialized = 'true'
+
+  closeButton?.addEventListener('click', () => {
+    if (
+      toolbar.classList.contains('bd-toolbar-minimizing') ||
+      toolbar.classList.contains('bd-toolbar-hidden')
+    ) {
+      return
+    }
+
+    toolbar.classList.remove('bd-toolbar-restoring')
+    toolbar.classList.remove('bd-toolbar-minimizing')
+
+    // Força o navegador a reiniciar a animação.
+    void toolbar.offsetWidth
+
+    toolbar.classList.add('bd-toolbar-minimizing')
+  })
+
+  toggleButton.addEventListener('click', () => {
+    if (!toolbar.classList.contains('bd-toolbar-hidden')) {
+      return
+    }
+
+    toggleButton.hidden = true
+
+    toolbar.classList.remove('bd-toolbar-hidden')
+    toolbar.classList.remove('bd-toolbar-minimizing')
+    toolbar.classList.remove('bd-toolbar-restoring')
+
+    // Reinicia a animação de restauração.
+    void toolbar.offsetWidth
+
+    toolbar.classList.add('bd-toolbar-restoring')
+  })
+
+  toolbar.addEventListener('animationend', (event) => {
+    if (event.target !== toolbar) return
+
+    if (event.animationName === 'bd-toolbar-minimize') {
+      toolbar.classList.remove('bd-toolbar-minimizing')
+      toolbar.classList.add('bd-toolbar-hidden')
+      toggleButton.hidden = false
+    }
+
+    if (event.animationName === 'bd-toolbar-restore') {
+      toolbar.classList.remove('bd-toolbar-restoring')
+    }
+  })
+
+  toggleButton.hidden = !toolbar.classList.contains('bd-toolbar-hidden')
+}
+
 export function createToolbar() {
   let toolbar = document.querySelector(`#${TOOLBAR_ID}`)
 
@@ -59,7 +135,7 @@ export function createToolbar() {
         <div class="bd-brand-icon">
           ${lucideIcon('bot', 21)}
         </div>
-
+         <button class="close-toolbar" type="button">${lucideIcon('close', 21)}</button> 
         <div class="bd-brand-copy">
           <h2>ChatGPT Bulk Delete</h2>
           <p>Remova vários chats de uma só vez</p>
@@ -138,7 +214,19 @@ export function createToolbar() {
   `
 
   document.body.appendChild(toolbar)
+  toolbar.classList.add('bd-entering')
 
+toolbar.addEventListener('animationend', (event) => {
+  if (
+    event.target === toolbar &&
+    event.animationName === 'bd-enter'
+  ) {
+    toolbar.classList.remove('bd-entering')
+  }
+})
+
+  setupToolbarToggle(toolbar)
+  
   toolbar
     .querySelector('#bulk-select-visible')
     .addEventListener('click', () => {
