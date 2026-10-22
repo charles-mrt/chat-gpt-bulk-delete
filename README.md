@@ -1,110 +1,187 @@
-# ChatGPT Bulk Delete
+<div align="center">
 
-Uma extensão experimental para Google Chrome que permite selecionar e excluir múltiplas conversas do ChatGPT de forma prática e organizada.
+<p align="center">
+  <img src="assets/images/cover.jpeg" alt="ChatGPT Bulk Delete Header" width="70%" />
+</p>
 
-## ✨ Funcionalidades
+# 🗑️ ChatGPT Bulk Delete
 
-- **Seleção múltipla:** selecione individualmente as conversas que deseja excluir.
-- **Selecionar conversas visíveis:** marque rapidamente todas as conversas atualmente visíveis na barra lateral.
-- **Limpar seleção:** desmarque todas as conversas selecionadas.
-- **Exclusão em lote:** exclua várias conversas em sequência.
-- **Confirmação antes de excluir:** revise a ação antes de iniciar a exclusão.
-- **Interface moderna:** painel integrado à interface do ChatGPT.
-- **Ícones SVG:** interface com ícones vetoriais inspirados no Lucide.
+**Simplifique o gerenciamento do seu histórico do ChatGPT com a seleção e exclusão de conversas em lote.**
 
-## 🖥️ Prévia
+[![Chrome Extension](https://img.shields.io/badge/Chrome_Extension-Manifest_V3-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](#)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](#)
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](#-licença)
 
-![ChatGPT Bulk Delete](assets/screenshot-1.png)
-![ChatGPT Bulk Delete](assets/screenshot-2.png)
-## 📦 Instalação
+<p align="center">
+  <a href="#-sobre-o-projeto">Sobre</a> •
+  <a href="#-funcionalidades">Funcionalidades</a> •
+  <a href="#-prévia">Prévia</a> •
+  <a href="#-instalação-manual-modo-de-desenvolvedor">Instalação</a> •
+  <a href="#-como-usar">Como Usar</a> •
+  <a href="#-tecnologias-utilizadas">Tecnologias</a> •
+  <a href="#-estrutura-do-projeto">Estrutura</a> •
+  <a href="#-licença">Licença</a> •
+  <a href="#-aviso-importante">Aviso Importante</a>
+</p>
 
-Atualmente, a extensão pode ser instalada manualmente no Google Chrome, utilizando o modo de desenvolvedor.
-
-1. Clone este repositório:
-
-   ```bash
-   git clone https://github.com/SEU_USUARIO/chatgpt-bulk-delete.git
-   ```
-
-2. Acesse `chrome://extensions` no Google Chrome.
-3. Ative o **Modo do desenvolvedor**.
-4. Clique em **Carregar sem compactação**.
-5. Selecione a pasta do projeto que contém o arquivo `manifest.json`.
-6. Acesse o [ChatGPT](https://chatgpt.com/) e atualize a página.
-
-> **Observação:** substitua `SEU_USUARIO` pelo seu nome de usuário do GitHub no comando de clonagem.
-
-## 🚀 Como usar
-
-1. Abra o ChatGPT e localize a barra lateral de conversas.
-2. Utilize as caixas de seleção para marcar as conversas desejadas.
-3. Utilize a opção **Selecionar visíveis** para marcar as conversas exibidas.
-4. Confira a quantidade de conversas selecionadas no painel da extensão.
-5. Clique em **Excluir selecionadas**.
-6. Leia o aviso e confirme a operação para iniciar a exclusão.
-
-**Atenção:** revise cuidadosamente a seleção antes de confirmar. A exclusão de conversas pode ser permanente.
-
-## 📁 Estrutura do projeto
-
-```text
-chatgpt-bulk-delete/
-├── manifest.json
-├── assets/
-│   ├── icon-16.png
-│   ├── icon-48.png
-│   ├── icon-128.png
-│   └── screenshot.png
-└── src/
-    ├── content.js
-    └── styles.css
-```
-
-- `manifest.json`: configurações, permissões e informações da extensão.
-- `src/content.js`: lógica de seleção e exclusão das conversas.
-- `src/styles.css`: estilos do painel e dos componentes visuais.
-- `assets/`: ícones e recursos visuais da extensão.
-
-## 🛠️ Tecnologias
-
-- JavaScript
-- CSS
-- HTML e SVG
-- Chrome Extensions API
-
-## 🔄 Desenvolvimento
-
-Após modificar os arquivos da extensão:
-
-1. Acesse `chrome://extensions`.
-2. Localize a extensão instalada.
-3. Clique no botão de recarregar.
-4. Atualize a página do ChatGPT para aplicar as alterações.
-
-Como a extensão interage diretamente com a interface do ChatGPT, mudanças no site podem afetar seu funcionamento e exigir ajustes no código.
-
-## 🔒 Privacidade
-
-A extensão foi desenvolvida para realizar a seleção e a exclusão de conversas diretamente pela interface do ChatGPT.
-
-Antes de utilizá-la, recomenda-se revisar o código-fonte, verificar as permissões solicitadas e avaliar eventuais comunicações externas. Não presuma que a extensão seja livre de riscos apenas por funcionar localmente no navegador.
-
-## ⚠️ Aviso importante
-
-Esta extensão é um **projeto experimental e independente**, sem vínculo oficial com a OpenAI.
-
-O funcionamento depende da estrutura e do comportamento da interface do ChatGPT, que podem mudar sem aviso prévio. Por esse motivo, não há garantia de funcionamento contínuo, compatibilidade futura ou ausência de erros.
-
-**O uso da extensão é de responsabilidade do próprio usuário e ocorre por sua conta e risco.** A exclusão de conversas pode ser permanente, e falhas na interface ou no processo de exclusão podem produzir resultados inesperados.
-
-Antes de utilizar a extensão, revise o código-fonte, verifique as permissões e confirme cuidadosamente quais conversas serão excluídas.
-
-## 📄 Licença
-
-A licença deste projeto ainda não foi definida.
-
-Até que uma licença seja adicionada ao repositório, não presuma que o código possa ser livremente modificado, redistribuído ou utilizado em outros projetos.
+</div>
 
 ---
 
+## 📌 Sobre o Projeto
+
+O **ChatGPT Bulk Delete** é uma extensão experimental para o **Google Chrome**, desenvolvida para facilitar o gerenciamento do histórico do ChatGPT, permitindo selecionar e excluir várias conversas de uma só vez.
+
+A extensão adiciona caixas de seleção à lista de conversas e permite selecionar as conversas visíveis na barra lateral. Ao rolar a lista, você pode acessar outras conversas e selecioná-las também, reunindo várias conversas para exclusão em lote.
+
+---
+
+## ✨ Funcionalidades
+
+- 🔘 **Seleção Individual de Conversas:** Selecione manualmente as conversas que deseja excluir.
+- 👁️ **Seleção de Conversas Visíveis:** Selecione todas as conversas visíveis na barra lateral com um único clique.
+- 🧹 **Limpar Seleção:** Remova todas as conversas selecionadas de uma só vez.
+- ⚡ **Exclusão em Lote (Bulk Delete):** Exclua sequencialmente as conversas selecionadas.
+- 🛡️ **Modal de Confirmação:** Revise a ação antes de confirmar a exclusão das conversas.
+- 🎨 **Interface Integrada e Modular:** Interface integrada ao ChatGPT, com estilos CSS modulares e ícones vetoriais.
+
+---
+
+## 🖥️ Prévia
+
+<table width="100%">
+  <tr>
+    <td width="50%" align="center">
+      <b>Painel Principal</b><br/><br/>
+      <img src="assets/images/screenshot-1.png" alt="Interface principal" width="100%" />
+    </td>
+    <td width="50%" align="center">
+      <b>Confirmação & Seleção</b><br/><br/>
+      <img src="assets/images/screenshot-2.png" alt="Processo de exclusão" width="100%" />
+    </td>
+  </tr>
+</table>
+---
+
+## 🚀 Como Usar
+
+1. **Abra o ChatGPT:** Acesse [chatgpt.com](https://chatgpt.com/) no navegador.
+2. **Selecione as conversas:** Utilize as caixas de seleção (*checkboxes*) na barra lateral ou o botão **"Selecionar Visíveis"**.
+3. **Revise a seleção:** Confira o contador de conversas selecionadas na barra de ferramentas.
+4. **Execute a exclusão:** Clique em **"Excluir Selecionadas"**, revise o aviso no modal de confirmação e confirme a ação.
+
+> ⚠️ **Atenção:** Revise cuidadosamente as conversas selecionadas antes de confirmar. A exclusão de conversas no ChatGPT pode ser permanente.
+
+---
+
+## 📦 Instalação Manual (Modo de Desenvolvedor)
+
+### Pré-requisitos
+- [Google Chrome](https://www.google.com/chrome/) instalado.
+- [Node.js](https://nodejs.org/) & [pnpm](https://pnpm.io/) configurados.
+- [Git](https://git-scm.com/) para clonar o repositório.
+
+### Passo a Passo
+
+```bash
+# 1. Clone o repositório
+git clone https://github.com/charles-mrt/chat-gpt-bulk-delete.git
+
+# 2. Acesse a pasta do projeto
+cd chatgpt-bulk-delete
+
+# 3. Instale as dependências
+pnpm install
+
+# 4. Gere os arquivos de distribuição
+pnpm build
+```
+
+5. No Google Chrome, abra a página `chrome://extensions/`.
+6. Ative a opção **Modo do desenvolvedor** no canto superior direito.
+7. Clique em **Carregar sem compactação** (*Load unpacked*).
+8. Selecione a pasta raiz do projeto (onde está localizado o ficheiro `manifest.json`).
+9. Acesse o ChatGPT e atualize a página.
+
+---
+
+## 💻 Desenvolvimento & Workflow
+
+Para modificar ou contribuir para o código:
+
+```bash
+# Executa o empacotador em modo de observação (Watch Mode)
+pnpm watch
+```
+
+> **Nota:** O script `watch` recompila as alterações de JavaScript automaticamente. Caso modifique arquivos CSS, execute `pnpm build` para atualizar os estilos na pasta `dist/`.
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- **Linguagens:** JavaScript (ES Modules) & CSS3
+- **Plataforma:** Chrome Extensions API (Manifest V3)
+- **Empacotador:** [esbuild](https://esbuild.github.io/)
+- **Gerenciador de Pacotes:** [pnpm](https://pnpm.io/)
+
+---
+
+## 📁 Estrutura do Projeto
+
+```text
+chatgpt-bulk-delete/
+├── 📄 manifest.json        # Configuração principal da Chrome Extension (V3)
+├── 📄 package.json         # Scripts de build e dependências
+├── 📄 pnpm-lock.yaml       # Ficheiro de bloqueio de dependências
+├── 📁 assets/               
+│   ├── 📁 fonts/           # Fontes
+│   │   └──audiowide-regular.woff2
+│   └── 📁 images/          # Banners, ícones, capturas de tela
+│       ├── cover.jpeg
+│       ├── icon-16.png
+│       ├── icon-48.png
+│       ├── icon-128.png
+│       ├── screenshot-1.png
+│       └── screenshot-2.png
+├── 📁 dist/                # arquivos otimizados gerados pelo build
+│   ├── content.js
+│   └── content.css
+└── 📁 src/                 # Código-fonte do projeto
+    ├── 📄 background.js    # Service worker da extensão
+    ├── 📄 content.js       # Ponto de entrada do content script
+    ├── 📁 features/        # Módulos de seleção, exclusão e toolbar
+    │   ├── 📁 bulk-delete/
+    │   ├── 📁 conversations/
+    │   └── 📁 toolbar/
+    ├── 📁 shared/          # Recursos compartilhados (SVG Icons)
+    └── 📁 styles/          # Estilos CSS modulares
+```
+
+---
+
+## 🔒 Privacidade
+
+A extensão foi desenvolvida para realizar a seleção e a exclusão de conversas diretamente pela interface do ChatGPT. Recomenda-se revisar o código-fonte e verificar as permissões solicitadas. O funcionamento local no navegador, por si só, não garante ausência de riscos.
+
+---
+
+## ⚠️ Aviso Importante
+
+Esta extensão é um **projeto experimental e independente**, sem qualquer vínculo ou autorização oficial da **OpenAI**.
+
+O seu funcionamento depende da estrutura da interface do ChatGPT, que pode mudar sem aviso prévio. O uso da extensão é de responsabilidade do próprio usuário.
+
+---
+
+## 📄 Licença
+
+Este projeto está licenciado sob a [Licença MIT](LICENSE) - consulte o arquivo LICENSE para obter mais detalhes.
+
+---
+
+<div align="center">
+
 Desenvolvido para tornar a exclusão de conversas do ChatGPT mais prática e organizada.
+
+</div>

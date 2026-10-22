@@ -1,0 +1,57 @@
+.bulk-delete-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+
+  position: relative;
+  flex-shrink: 0;
+
+  width: 16px;
+  height: 16px;
+  margin: 0 8px 0 0;
+
+  background: var(--bd-panel);
+  border: 1px solid var(--bd-checkbox-border, #525252);
+  border-radius: 4px;
+
+  cursor: pointer;
+
+  transition:
+    background var(--bd-transition, 150ms ease),
+    border-color var(--bd-transition, 150ms ease),
+    box-shadow var(--bd-transition, 150ms ease);
+}
+
+.bulk-delete-checkbox:hover:not(:disabled) {
+  border-color: var(--bd-focus);
+}
+
+.bulk-delete-checkbox:checked {
+  background: var(--bd-danger-hover);
+  border-color: var(--bd-danger-hover);
+}
+
+.bulk-delete-checkbox:checked::after {
+  content: '';
+  position: absolute;
+
+  left: 4px;
+  top: 1px;
+
+  width: 5px;
+  height: 9px;
+
+  border: solid var(--bd-white, #ffffff);
+  border-width: 0 2px 2px 0;
+
+  transform: rotate(45deg);
+}
+
+.bulk-delete-checkbox:focus-visible {
+  outline: 2px solid var(--bd-focus);
+  outline-offset: 2px;
+}
+
+.bulk-delete-checkbox:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

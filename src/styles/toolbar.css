@@ -1,0 +1,431 @@
+/* ---------- Toolbar ---------- */
+
+#bulk-delete-toolbar {
+  position: fixed;
+  z-index: 99999;
+  isolation: isolate;
+  overflow: hidden;
+
+  right: 24px;
+  bottom: 24px;
+
+  width: min(340px, calc(100vw - 32px));
+  box-sizing: border-box;
+  padding: 18px;
+
+  color: var(--bd-text);
+
+  background:
+    linear-gradient(var(--bd-bg), var(--bd-bg)) padding-box,
+    conic-gradient(
+      from var(--bd-angle),
+      var(--bd-border) 0deg,
+      var(--bd-border) 55deg,
+      var(--bd-blue) 90deg,
+      var(--bd-indigo) 145deg,
+      var(--bd-pink) 195deg,
+      var(--bd-border) 245deg,
+      var(--bd-border) 310deg,
+      var(--bd-blue) 350deg,
+      var(--bd-border) 360deg
+    ) border-box;
+
+  border: 1px solid var(--bd-transparent);
+  border-radius: 18px;
+
+  box-shadow:
+    0 16px 48px var(--bd-shadow),
+    0 0 24px var(--bd-glow-shadow);
+
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.45;
+
+  animation:
+    bd-enter 180ms ease-out,
+    bd-border-rotation 9s linear infinite;
+}
+
+/* ---------- Rotating ambient light ---------- */
+
+#bulk-delete-toolbar::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+
+  inset: -65%;
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  background: conic-gradient(
+    from 0deg,
+    var(--bd-transparent) 0deg,
+    var(--bd-glow-transparent) 35deg,
+    var(--bd-glow-blue) 75deg,
+    var(--bd-glow-indigo) 110deg,
+    var(--bd-glow-purple) 145deg,
+    var(--bd-transparent) 190deg,
+    var(--bd-transparent) 360deg
+  );
+
+  filter: blur(45px);
+  opacity: 0.7;
+
+  animation: bd-light-rotation 12s linear infinite;
+  will-change: transform;
+}
+
+/* ---------- Inner glow ---------- */
+
+#bulk-delete-toolbar::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+
+  border-radius: inherit;
+  pointer-events: none;
+
+  background: radial-gradient(
+    ellipse at 10% 0%,
+    var(--bd-glow-inner),
+    var(--bd-transparent) 60%
+  );
+
+  animation: bd-inner-glow 6s ease-in-out infinite alternate;
+}
+
+/* ---------- Content layers---------- */
+
+#bulk-delete-toolbar > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Sizing ---------- */
+
+#bulk-delete-toolbar * {
+  box-sizing: border-box;
+}
+
+/* ---------- Header ---------- */
+
+.bd-header {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 14px;
+}
+
+.bd-brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.bd-brand-icon {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+
+  width: 43px;
+  height: 43px;
+
+  color: var(--bd-text);
+  background: var(--bd-panel);
+  border: 1px solid var(--bd-border);
+  border-radius: 13px;
+}
+
+.bd-brand-icon svg,
+.bd-button svg,
+.bd-footer-note svg {
+  flex-shrink: 0;
+}
+
+.bd-brand-copy {
+  min-width: 0;
+}
+
+.bd-brand-copy h2 {
+  margin: 0;
+  color: var(--bd-text);
+  font-family: 'Audiowide', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: -0.3px;
+}
+
+.bd-brand-copy p {
+  margin: 3px 0 0;
+
+  color: var(--bd-muted);
+  font-size: 12px;
+}
+
+/* ---------- Selection indicator ---------- */
+
+.bd-selection-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  width: fit-content;
+  max-width: 100%;
+  padding: 6px 10px;
+
+  color: var(--bd-text);
+  background: var(--bd-panel);
+  border: 1px solid var(--bd-border);
+  border-radius: 999px;
+
+  font-size: 12px;
+  font-weight: 550;
+}
+
+.bd-selection-dot {
+  flex-shrink: 0;
+
+  width: 7px;
+  height: 7px;
+
+  background: var(--bd-success);
+  border-radius: 50%;
+}
+
+/* ---------- Status and dividers ---------- */
+
+.bd-status {
+  margin-top: 15px;
+
+  color: var(--bd-muted);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.bd-status[data-type='warning'] {
+  color: var(--bd-warning);
+}
+
+.bd-status[data-type='neutral'] {
+  color: var(--bd-neutral);
+}
+
+.bd-status[data-type='info'] {
+  color: var(--bd-info);
+}
+
+.bd-status[data-type='success'] {
+  color: var(--bd-success);
+}
+
+.bd-status[data-type='error'] {
+  color: var(--bd-error);
+}
+
+.bd-divider {
+  height: 1px;
+  margin: 16px 0;
+
+  background: var(--bd-border);
+}
+
+.bd-section-label {
+  margin-bottom: 9px;
+
+  color: var(--bd-muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* ---------- Actions ---------- */
+
+.bd-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ---------- Base buttons ---------- */
+
+.bd-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  min-height: 40px;
+  padding: 10px 12px;
+
+  color: var(--bd-text);
+  background: var(--bd-transparent);
+  border: 1px solid var(--bd-transparent);
+  border-radius: 10px;
+
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background var(--bd-transition),
+    border-color var(--bd-transition),
+    box-shadow var(--bd-transition),
+    transform var(--bd-transition),
+    opacity var(--bd-transition);
+}
+
+.bd-button:focus-visible,
+.bd-footer-manage:focus-visible {
+  outline: var(--bd-outline);
+  outline-offset: 3px;
+}
+
+.bd-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.bd-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.bd-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---------- Secondary buttons ---------- */
+
+.bd-button-secondary,
+.bd-button-icon {
+  background: var(--bd-panel);
+  border-color: var(--bd-border);
+}
+
+.bd-button-secondary:hover:not(:disabled),
+.bd-button-icon:hover:not(:disabled) {
+  background: var(--bd-hover);
+}
+
+.bd-button-select {
+  flex: 1;
+  min-width: 0;
+}
+
+.bd-button-icon {
+  width: 42px;
+  min-width: 42px;
+  padding: 0;
+}
+
+/* ---------- Delete button ---------- */
+
+.bd-button-danger {
+  color: var(--bd-white);
+
+  background: linear-gradient(
+    135deg,
+    var(--bd-danger-gradient-start) 0%,
+    var(--bd-danger-gradient-middle) 55%,
+    var(--bd-danger-gradient-end) 100%
+  );
+
+  border: 1px solid var(--bd-danger-border);
+}
+
+.bd-button-danger:hover:not(:disabled) {
+  background: linear-gradient(
+    135deg,
+    var(--bd-danger-gradient-hover-start) 0%,
+    var(--bd-danger-gradient-hover-middle) 55%,
+    var(--bd-danger-gradient-hover-end) 100%
+  );
+
+  border-color: var(--bd-danger-border-hover);
+
+  box-shadow:
+    0 4px 16px var(--bd-danger-shadow),
+    inset 0 1px 0 var(--bd-white-highlight);
+}
+
+.bd-delete-button {
+  width: 100%;
+  min-height: 44px;
+  margin-top: 10px;
+}
+
+.bd-delete-button span {
+  flex: 1;
+  text-align: left;
+}
+
+/* ---------- Deletion warning ---------- */
+
+.bd-footer-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  margin: 13px 0 0;
+
+  color: var(--bd-muted);
+  font-size: 11px;
+}
+
+/* ---------- Footer ---------- */
+
+.bd-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  margin-top: 12px;
+  padding-top: 10px;
+
+  border-top: 1px solid var(--bd-border);
+}
+
+.bd-footer-version {
+  flex-shrink: 0;
+  margin: 0;
+
+  color: var(--bd-muted);
+  font-size: 11px;
+  text-align: left;
+}
+
+.bd-footer-manage {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  min-height: 28px;
+  padding: 4px 0;
+
+  color: var(--bd-muted);
+  background: var(--bd-transparent);
+  border: none;
+  border-radius: 3px;
+
+  font: inherit;
+  font-size: 11px;
+
+  cursor: pointer;
+
+  transition: color var(--bd-transition);
+}
+
+.bd-footer-manage:hover {
+  color: var(--bd-text);
+}
+
+.bd-footer-manage svg {
+  flex-shrink: 0;
+}
