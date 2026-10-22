@@ -1,6 +1,7 @@
 {
   "scripts": {
     "build": "esbuild src/content.js --bundle --outdir=dist && esbuild src/styles/content.css --bundle --outfile=dist/content.css --loader:.woff2=file --public-path=./ && cp -r assets/fonts dist/",
+    "build:prod": "esbuild src/content.js --bundle --minify --outdir=dist && esbuild src/styles/content.css --bundle --minify --outfile=dist/content.css --loader:.woff2=file --public-path=./ && cp -r assets/fonts dist/",
     "watch": "esbuild src/content.js --bundle --outdir=dist --watch"
   },
   "devDependencies": {
