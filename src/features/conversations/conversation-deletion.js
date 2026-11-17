@@ -132,17 +132,7 @@ export async function deleteOneConversation(id) {
     )
   }
 
-  actionButton.dispatchEvent(
-    new PointerEvent('pointerdown', {
-      bubbles: true,
-      cancelable: true,
-      pointerId: 1,
-      pointerType: 'mouse',
-      isPrimary: true,
-      button: 0,
-      buttons: 1,
-    }),
-  )
+ actionButton.click()
 
   const menu = await waitForElement(
     () => getOpenMenuForButton(actionButton),
